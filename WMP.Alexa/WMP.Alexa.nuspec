@@ -2,10 +2,10 @@
 <package >
   <metadata>
     <id>$id$</id>
-    <version>$version$</version>
+    <version>1.0.1</version>
     <title>$title$</title>
-    <authors>$author$</authors>
-    <owners>$author$</owners>
+    <authors>gfabry</authors>
+    <owners>gfabry</owners>
     <licenseUrl>https://raw.githubusercontent.com/gregoryfabry/WMP.Alexa/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/gregoryfabry/WMP.Alexa</projectUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
@@ -14,15 +14,9 @@
     <copyright>Copyright 2017 Gregory Fabry</copyright>
     <tags>alexa amazon</tags>
     <dependencies>
-      <dependency id="Netwonsoft.Json" version="9.0.1" />
+      <dependency id="Newtonsoft.Json" version="9.0.1" />
       <dependency id="Microsoft.AspNet.WebApi.Core" version="5.2.3" />
       <dependency id="BouncyCastle" version="1.8.1" />
     </dependencies>
-    <references>
-      <reference file="System.Runtime.Caching.dll" />
-    </references>
-    <files>
-      <file src=".\WMP.Alexa\bin\Release\WMP.Alexa.dll" target="lib\net45" />
-    </files>
   </metadata>
 </package>
