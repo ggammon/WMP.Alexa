@@ -41,7 +41,7 @@ Each handler has the same signature; APIs for the AlexaSession, AlexaRequest and
       } 
     }
 
-One handler can be invoked by multiple intents by adding more than one Intent attribute.
+One handler can be invoked by multiple intents by adding more than one Intent attribute. A handler has the job of interpreting the request and then setting the response properly (most easily done using the AlexaResponse helpers below).
 
 ### 3. Wire up a controller
 
@@ -58,8 +58,38 @@ AlexaSession is a Dictionary<string, string>. When a request is received, the se
 
 The AlexaRequest and AlexaResponse classes follow the format outlined in the [Amazon Alexa custom skill docs](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/alexa-skills-kit-interface-reference).
 
+Slots are accessible through a SlotDictionary, which is similar to a "DefaultDictionary", in that you can access keys without worrying whether they are there or not. A slot instance has a Value property, and an IsValid() helper method. This way, the three cases of 1) the request not including the slot, 2) including the slot but leaving the value null and 3) including the slot but leaving the value an empty string can be handled the same way: just check request.Body.Intent.Slots[SLOTNAME].IsValid() and proceed accordingly.
+
 The AlexaResponse class offers the following helper utilities:
 
 #### void SayText(string text)
 
-Adds to the output text of the request.
+Sets the output type to text, and sets the output to the text parameter. If called successively, the text parameter is appended to the existing output. Note that you cannot provide both text and SSML output.
+
+#### void SaySSML(string ssml)
+
+Sets the output type to SSML, and sets the output to the ssml parameter. If called successively, ssml is appended to the existing output. Note that you cannot provide both text and SSML output.
+
+#### void RepromptText(string text)
+
+Similar to SayText, except sets the reprompt text.
+
+#### void RepromptSSML(string ssm)
+
+Similar to SaySSML, except sets the reprompt SSML.
+
+#### void ShowCard(string title, string content)
+
+Sets a simple card to be shown, with a title and body text.
+
+#### void ShowCard(string title, string content, string image)
+
+Sets a standard card to be shown, with a title, body text and image via an image URL.
+
+#### void LinkAccount()
+
+Sets the link account card to be shown.
+
+#### void EndSession()
+
+Ends the session, i.e. sets ShouldEndSession to be true.
