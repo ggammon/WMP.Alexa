@@ -9,7 +9,7 @@ Search for WMP.Alexa in the NuGet Library, or type `Install-Package WMP.Alexa` i
 
 ### 1. Extend AlexaSkill
 
-Your skill is will be a class extending the abstract class AlexaSkill. You'll need to implement, at the bare minimum, StartSession and EndSession.
+Your skill will be a class extending the abstract class AlexaSkill. You'll need to implement, at the bare minimum, StartSession and EndSession.
 
     public class ExampleSkill : AlexaSkill
     {
@@ -34,8 +34,8 @@ Each handler has the same signature; APIs for the AlexaSession, AlexaRequest and
     {
       /* ... */
 
-      [Intent("GetCar")]
-      public void GetCar(AlexaSession session, AlexaRequest request, AlexaResponse response)
+      [Intent("GetDate")]
+      public void GetDate(AlexaSession session, AlexaRequest request, AlexaResponse response)
       {
         // Respond here
       } 
@@ -51,6 +51,10 @@ The AlexaSkill class presents `HandleRequest(AlexaSession session, AlexaRequest 
     public class ExampleSkillController : DefaultAlexaController<ExampleSkill> { }
     
 You can also validate the request yourself, cast the request, create a response and invoke HandleRequest yourself if you're using something different. In this model the session parameter and the session properties on the request and response parameters are references to the same object.
+
+## Example
+
+The example provided in Examples/ is a simple skill with one intent that reads one date slot and output the day of the week that date was on.
 
 ## API
 
