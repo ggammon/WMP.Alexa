@@ -49,7 +49,12 @@ The AlexaSkill class presents `HandleRequest(AlexaSession session, AlexaRequest 
 
     [Route("exampleskill")]
     public class ExampleSkillController : DefaultAlexaController<ExampleSkill> { }
-    
+ 
+ Note that you'll need to make sure that property names are serialized properly (ie camel-cased). You can do that in your app setup (WebApiConfig.cs in App_Start for a setup from template):
+ 
+    config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+    config.Formatters.JsonFormatter.UseDataContractJsonSerializer = false;
+ 
 You can also validate the request yourself, cast the request, create a response and invoke HandleRequest yourself if you're using something different. In this model the session parameter and the session properties on the request and response parameters are references to the same object.
 
 ## Example
