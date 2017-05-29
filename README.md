@@ -59,7 +59,7 @@ You can also validate the request yourself, cast the request, create a response 
 
 ## Example
 
-The example provided in Examples/ is a simple skill with one intent that reads one date slot and output the day of the week that date was on.
+The example provided in WMP.Alexa/Example/ is a simple skill with one intent that reads one date slot and output the day of the week that date was on.
 
 ## API
 
