@@ -59,6 +59,7 @@
     <Compile Include="AlexaSkill.cs" />
     <Compile Include="Attributes.cs" />
     <Compile Include="DefaultAlexaController.cs" />
+    <Compile Include="Example\DateFinderSkill.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SimpleAlexaSkill.cs" />
     <Compile Include="SpeechletRequestSignatureVerifier.cs" />
@@ -67,8 +68,6 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Example\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
